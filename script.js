@@ -3,6 +3,7 @@
 const checkButton = document.querySelector('.check');
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
 
 
 
@@ -18,6 +19,10 @@ checkButton.addEventListener('click', function () {
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = ` 🙌 Correct Number!`;
     document.querySelector('.number').textContent = secretNumber;
+    if(score > highScore){
+      highScore = score;
+      document.querySelector(".highscore").textContent = highScore;
+    }
     document.querySelector('body').style.backgroundColor = "#60b347";
     document.querySelector('.number').style.width = '30rem';
 
